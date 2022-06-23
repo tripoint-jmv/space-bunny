@@ -1,4 +1,4 @@
-import { Box, Center, Stack } from "@chakra-ui/react";
+import { Box, Grid, Stack } from "@chakra-ui/react";
 
 export default function Layout({ children }) {
   return (
@@ -8,9 +8,9 @@ export default function Layout({ children }) {
       w="-webkit-fill-available"
       h="calc(100vh)"
     >
-      <Center>
+      <Grid justifyContent="center">
         <Stack>{children}</Stack>
-      </Center>
+      </Grid>
     </Box>
   );
 }
