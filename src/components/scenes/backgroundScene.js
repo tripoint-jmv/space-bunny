@@ -1,30 +1,13 @@
 import { gsap } from "gsap";
 import { stars } from "../../core/utils/stars";
-
-const moon = (context) => {
-  const canvasCtx = context.canvas;
-
-  const canvasWidth = canvasCtx.width;
-  const canvasHeight = canvasCtx.height;
-  const shipImg = new Image();
-  const shipimgXPos = canvasWidth / 1.25;
-  const shipimgYPos = canvasHeight / 9.5;
-  shipImg.src = "moon.png";
-  shipImg.onload = () => {
-    context.drawImage(
-      shipImg,
-      shipimgXPos,
-      shipimgYPos,
-      canvasWidth / 6,
-      canvasHeight / 4
-    );
-  };
-};
+import { moon } from "../canvasItems/moon";
+import { asteroids } from "../canvasItems/asteroids";
 
 export function bgScene(context) {
   const tl = gsap.timeline({
     onComplete: function () {
       moon(context);
+      asteroids(context);
     },
   });
   const canvasCtx = context.canvas;
