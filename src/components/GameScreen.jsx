@@ -1,12 +1,10 @@
 import QuizScreen from "./scenes/quiz/QuizScreen";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import MainScreen from "./scenes/main/MainScreen";
+import { GameBattleContext } from "../contexts/GameStateContext";
 
 export default function GameScreen() {
-  const [isBattle, setIsBattle] = useState(true);
-  /*
-   * TODO:
-   * Set battle state on collision with asteroid, moon, etc.
-   */
+  const { isBattle } = useContext(GameBattleContext);
+
   return <>{isBattle ? <QuizScreen /> : <MainScreen />}</>;
 }

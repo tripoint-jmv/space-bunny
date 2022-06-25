@@ -1,15 +1,21 @@
 import { useState } from "react";
 import StartScreen from "./components/StartScreen";
 import Layout from "./core/components/Layout";
-import { GameStateContext } from "./contexts/GameStateContext";
+import {
+  GameStateContext,
+  GameBattleContext,
+} from "./contexts/GameStateContext";
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
+  const [isBattle, setIsBattle] = useState(false);
 
   return (
     <Layout>
       <GameStateContext.Provider value={{ gameStarted, setGameStarted }}>
-        <StartScreen />
+        <GameBattleContext.Provider value={{ isBattle, setIsBattle }}>
+          <StartScreen />
+        </GameBattleContext.Provider>
       </GameStateContext.Provider>
     </Layout>
   );

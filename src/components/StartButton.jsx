@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Button, Grid, Text } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { GameStateContext } from "../contexts/GameStateContext";
 
 export default function StartButton(gameStarted) {
