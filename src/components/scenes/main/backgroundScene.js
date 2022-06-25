@@ -1,13 +1,14 @@
 import { gsap } from "gsap";
-import { stars } from "../../core/utils/stars";
-import { moon } from "../canvasItems/moon";
-import { asteroids } from "../canvasItems/asteroids";
-
+import { stars } from "../../../core/utils/stars";
+import { moon } from "../../canvasItems/moon";
+import { asteroids } from "../../canvasItems/asteroids";
+import { charachterScene } from "./charachterScene";
 export function bgScene(context) {
   const tl = gsap.timeline({
     onComplete: function () {
       moon(context);
       asteroids(context);
+      charachterScene(context);
     },
   });
   const canvasCtx = context.canvas;

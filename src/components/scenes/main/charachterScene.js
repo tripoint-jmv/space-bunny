@@ -1,4 +1,8 @@
+import { gsap } from "gsap";
+
 export const charachterScene = (context) => {
+  const tl = gsap.timeline();
+
   const canvasCtx = context.canvas;
   const canvasWidth = canvasCtx.width;
   const canvasHeight = canvasCtx.height;
@@ -16,4 +20,7 @@ export const charachterScene = (context) => {
       canvasHeight / 4
     );
   };
+  tl.add(canvasCtx, charachterScene);
+
+  return tl;
 };

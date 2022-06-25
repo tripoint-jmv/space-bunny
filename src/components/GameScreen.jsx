@@ -1,21 +1,12 @@
-import Canvas from "../core/components/Canvas";
-import { gsap } from "gsap";
-import { bgScene } from "./scenes/backgroundScene";
-import { charachterScene } from "./scenes/charachterScene";
+import QuizScreen from "./scenes/quiz/QuizScreen";
+import { useState } from "react";
+import MainScreen from "./scenes/main/MainScreen";
 
 export default function GameScreen() {
-  const mainScene = (context) => {
-    const tl = gsap.timeline({
-      onComplete: function () {
-        charachterScene(context);
-      },
-    });
-    tl.add(bgScene(context));
-  };
-
-  return (
-    <>
-      <Canvas draw={mainScene} height="576" width="1024" />
-    </>
-  );
+  const [isBattle, setIsBattle] = useState(true);
+  /*
+   * TODO:
+   * Set battle state on collision with asteroid, moon, etc.
+   */
+  return <>{isBattle ? <QuizScreen /> : <MainScreen />}</>;
 }
